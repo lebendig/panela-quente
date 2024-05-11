@@ -1,6 +1,9 @@
+import { Observable } from 'rxjs';
 import { Food } from '../model/food';
+import { FoodsService } from '../services/foods.service';
 import { FoodsModule } from './../foods.module';
 import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-foods',
@@ -9,17 +12,15 @@ import { Component } from '@angular/core';
 })
 export class FoodsComponent {
 
-foods: Food[] = [{_id: '1', name: 'arroz', category: 'grao'},
-{_id: '1', name: 'feijao', category: 'grao'},
-{_id: '1', name: 'banana', category: 'fruta'},
-{_id: '1', name: 'manga', category: 'fruta'},
-{_id: '1', name: 'abobrinha', category: 'legumes'},
-];
+foods$: Observable<Food[]>;
+displayedColumns = ['name', 'category', 'actions']
 
-displayedColumns = ['name', 'category']
+constructor(private foodService: FoodsService, public router:Router) {
+  this.foods$ = foodService.list().pipe();
+}
 
-constructor() {
-  //this.foods = [];
+onAdd() {
+  this.router.navigate(['/foods/new'])
 }
 
 }
