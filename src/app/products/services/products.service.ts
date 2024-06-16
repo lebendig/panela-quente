@@ -1,18 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Food } from '../model/food';
+import { Product } from '../model/product';
 import { first, of, tap, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FoodsService {
+export class ProductsService {
 
-  private readonly API = 'api/foods'
+  private readonly API = 'api/products'
 
   constructor(private httpClient: HttpClient) { }
 
-  findAll(): Food[] {
+  findAll(): Product[] {
     return [{_id: '1', name: 'arroz', category: 'grao'},
     {_id: '1', name: 'feijao', category: 'grao'},
     {_id: '1', name: 'banana', category: 'fruta'},
@@ -22,7 +22,7 @@ export class FoodsService {
   }
 
   list() {
-    return this.httpClient.get<Food[]>(this.API)
+    return this.httpClient.get<Product[]>(this.API + "/products")
       .pipe(
         first()
         //map(data => data.foods)

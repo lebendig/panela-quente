@@ -1,22 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FoodsRoutingModule } from './foods-routing.module';
-import { FoodsComponent } from './foods/foods.component';
+
+import { ProductsComponent } from './products/products.component';
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { FoodsFormComponent } from './foods-form/foods-form.component';
+import { ProductsRoutingModule } from './products-routing.module';
+import { ProductsFormComponent } from './products-form/products-form.component';
 
 @NgModule({
   declarations: [
-    FoodsComponent,
-    FoodsFormComponent
+    ProductsComponent,
+    ProductsFormComponent
   ],
   imports: [
     CommonModule,
-    FoodsRoutingModule,
+    ProductsRoutingModule,
     AppMaterialModule,
     MatProgressSpinnerModule
   ]
 })
-export class FoodsModule { }
+export class ProductsModule { }

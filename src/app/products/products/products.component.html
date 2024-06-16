@@ -1,8 +1,8 @@
 <mat-card>
   <mat-card-content>
-    <mat-toolbar color="primary">Foods</mat-toolbar>
-    <div *ngIf="foods$ | async as foods; else loading">
-      <table mat-table [dataSource]="foods" class="mat-elevation-z8">
+    <mat-toolbar color="primary">Products</mat-toolbar>
+    <div *ngIf="products$ | async as products; else loading">
+      <table mat-table [dataSource]="products" class="mat-elevation-z8">
 
         <!-- Name Column -->
         <ng-container matColumnDef="name">
