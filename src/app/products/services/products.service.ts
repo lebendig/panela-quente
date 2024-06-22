@@ -28,6 +28,15 @@ export class ProductsService {
         //map(data => data.foods)
       );
   }
+
+  addNew(product: Product) {
+    return this.httpClient.post<Product>(this.API + "/products/new", product)
+      .pipe(
+        first()
+      );
+  }
+
+  //
   // list(page = 0, pageSize = 10) {
   //   return this.httpClient.get<CoursePage>(this.API, { params: { page, pageSize } })
   //     .pipe(

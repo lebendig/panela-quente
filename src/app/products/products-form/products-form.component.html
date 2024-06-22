@@ -1,19 +1,26 @@
-<div class="cotainer-product-card">
-  <mat-card class="new-product-card" appearance="outlined">
-    <mat-card-header>
-      <mat-card-title>Add New Product</mat-card-title>
-    </mat-card-header>
-    <mat-form-field class="example-full-width">
-      <mat-label>First name</mat-label>
-      <input matInput>
-    </mat-form-field>
+<div class="container-product-card">
+  <form [formGroup]="productForm" (ngSubmit)="addNewProduct()">
+    <mat-card class="new-product-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Add New Product</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" type="text">
+        </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Select</mat-label>
-      <mat-select>
-        <mat-option value="one">First option</mat-option>
-        <mat-option value="two">Second option</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </mat-card>
+        <mat-form-field class="example-full-width">
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="category">
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button type="submit" [disabled]="productForm.invalid">Add</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
 </div>

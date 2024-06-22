@@ -8,6 +8,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   exports: [MatTableModule,
@@ -16,7 +18,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatSnackBarModule,
     MatButtonModule,
     MatIconModule,
+    FormsModule,
     MatInputModule,
-    MatSelectModule],
+    MatSelectModule,
+    ReactiveFormsModule,
+    HttpClientModule]
 })
 export class AppMaterialModule { }
