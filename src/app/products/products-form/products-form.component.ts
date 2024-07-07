@@ -12,6 +12,7 @@ export class ProductsFormComponent {
 
   category = '';
   name = "";
+  categories: string[] = [];
   productForm: FormGroup;
 
   constructor(private fb: FormBuilder, private productService: ProductsService ){
@@ -19,6 +20,15 @@ export class ProductsFormComponent {
       name: ['', Validators.required],
       category: ['', Validators.required]
     });
+
+    this.productService.getCategories().subscribe(
+      (data: string[]) => {
+        this.categories = data;
+      },
+      error => {
+        console.error('Erro ao buscar categorias', error);
+      }
+    );
   }
 
    addNewProduct() {

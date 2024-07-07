@@ -36,6 +36,10 @@ export class ProductsService {
       );
   }
 
+  getCategories() {
+    return this.httpClient.get<string[]>((this.API + "/categories"));
+  }
+
   //
   // list(page = 0, pageSize = 10) {
   //   return this.httpClient.get<CoursePage>(this.API, { params: { page, pageSize } })
